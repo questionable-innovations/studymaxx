@@ -15,7 +15,7 @@
       };
     };
     systemImageType = "google_apis_playstore";
-    platformVersions = [ "35" "31" ];
+    platformVersions = [ "35" "33" "31" ];
     buildToolsVersion = "34.0.0";
     androidComposition = pkgs.androidenv.composeAndroidPackages {
       buildToolsVersions = [ buildToolsVersion ];
