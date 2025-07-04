@@ -1,5 +1,5 @@
-import '../auth/auth_service.dart';
 import 'package:flutter/material.dart';
+import '../auth/auth_service.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -30,25 +30,40 @@ class _LoginPageState extends State<LoginPage> {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-          // Email
-          TextField(
-            controller: _emailController,
-            decoration: InputDecoration(labelText: 'Email'),
-          ),
-          // Password
-          TextField(
-            controller: _passwordController,
-            decoration: InputDecoration(labelText: 'Password'),
-          ),
-          // Login button
-          ElevatedButton(
-            onPressed: login,
-            child: Text('Login'),
-          ),
-          GestureDetector(
-            child: Text("Don't have and accout already? Sign up"),
-            onTap: () => {Navigator.pushNamed(context, "/signup")},
-          ),
+            // Email
+            TextField(
+              controller: _emailController,
+              decoration: InputDecoration(labelText: 'Email'),
+            ),
+            // Password
+            TextField(
+              controller: _passwordController,
+              decoration: InputDecoration(labelText: 'Password'),
+            ),
+            // Login button
+            FractionallySizedBox(
+              widthFactor: 1,
+              child: Padding(
+                padding: EdgeInsets.only(top: 8.0, bottom: 8.0),
+                child: ElevatedButton(
+                  onPressed: login,
+                  child: Text('Login'),
+                ),
+              )
+            ),
+            GestureDetector(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [ 
+                  Text("Don't have and accout already?"),
+                  Text(
+                    " Sign up",
+                    style: TextStyle(color: Colors.deepPurple),
+                  ), 
+                ],
+              ),
+              onTap: () => Navigator.pushNamed(context, "/signup"),
+            ),
           ],
         ),
       )
